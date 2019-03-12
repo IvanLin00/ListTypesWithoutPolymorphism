@@ -2,20 +2,21 @@
  Test list features.
  */
 public class UserOfList {
-    List_inArraySlots list;
+    
     
     public static void main( String[] args ) {
+	List_inArraySlots list;
         list = new List_inArraySlots();
 
-        // System.out.println( "number of elements: " + list.size() );
-        // System.out.println( "empty list: " + list);
+        System.out.println( "number of elements: " + list.size() );
+        System.out.println( "empty list: " + list);
 
-        // // Populate the list with diverse elements.
-        // list.add( 2, -1, -2.0,  "important");
-        // System.out.println( "number of elements: " + list.size() );
-        // System.out.println( "added string: " + list);
+        // Populate the list with diverse elements.
+        //list.add( 2, -1, -2.0,  "important");
+        //System.out.println( "number of elements: " + list.size() );
+        //System.out.println( "added string: " + list);
 
-        // list.add( 0, 17, -2.0,  "junk");
+        //list.add( 0, 17, -2.0,  "junk");
         // System.out.println( "number of elements: " + list.size() );
         // System.out.println( "added int: " + list);
 
