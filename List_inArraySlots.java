@@ -61,12 +61,12 @@ public class List_inArraySlots {
 	}
 	for (int num: typeOfElements){
 	    if (num == 0){
-		s += intElements[intIndex] + ", ";
-		intIndex ++;
+			s += intElements[intIndex] + ", ";
+			intIndex ++;
 	    }
 	    if (num == 1){
-		s += doubleElements[doubleIndex] + ", ";
-		doubleIndex ++;
+			s += doubleElements[doubleIndex] + ", ";
+			doubleIndex ++;
 	    }
 	    s += stringElements[stringIndex] + ", ";
 	    stringIndex++;
@@ -85,20 +85,36 @@ public class List_inArraySlots {
                        // , double doubleValue
                        // , String stringValue
                        // ) {
-     // }
+		
+    // }
 
 
     /**
       Double the capacity of the List_inArraySlots,
       preserving existing data.
      */
-     // private void expand() {
-        // System.out.println( "expand... (for debugging)");
-           // /* S.O.P. rules for debugging:
-              // Working methods should be silent. But during
-              // development, the programmer must verify that
-              // this method is called when that is appropriate.
-              // So test using the println(), then comment it out.
-              // */
-     // }
+     private void expand() {
+        System.out.println( "expand... (for debugging)");
+           /* S.O.P. rules for debugging:
+              Working methods should be silent. But during
+              development, the programmer must verify that
+              this method is called when that is appropriate.
+              So test using the println(), then comment it out.
+              */
+		int[] biggerInt = new int[intElements.length * 2];
+		double[] biggerDouble = new double[doubleElements.length * 2];
+		String[] biggerString = new String[stringElements.length * 2];
+		for (int index = 0; index < intElements.length - 1; index ++) {
+			biggerInt[index] = intElements[index];
+		}
+		for (int index = 0; index < doubleElements.length - 1; index++) {
+			biggerDouble[index] = doubleElements[index];
+		}
+		for (int index = 0; index < stringElements.length - 1; index ++) {
+			biggerString[index] = stringElements[index];
+		}
+		intElements = biggerInt;
+		doubleElements = biggerDouble;
+		stringElements = biggerString;
+    }
 }
