@@ -13,6 +13,7 @@ public class List_inArraySlots {
 	private int filledDoubleElements;
 	private int filledStringElements;
     private int filledTypeElements; // the number of elements in this list
+	private Elements[] listOfElements;
     
     /* type identifier for each element
        That is, typeOfElements[i] == 0 means element i is an integer;
@@ -32,8 +33,8 @@ public class List_inArraySlots {
 		intElements = new int[INITIAL_CAPACITY];
 		doubleElements = new double[INITIAL_CAPACITY];
 		stringElements = new String[INITIAL_CAPACITY];
-		typeOfElements = new int[INITIAL_CAPACITY * 3];
 		filledIntElements = 0;
+		typeOfElements = new int[INITIAL_CAPACITY * 3];
 		filledDoubleElements = 0;
 		filledStringElements = 0;
 		filledTypeElements = 0 ;
@@ -97,6 +98,7 @@ public class List_inArraySlots {
 			expand();
 		}
 		typeOfElements[filledTypeElements] = type;
+		listOfElements[filledTypeElements] = new Element(type, intValue, doubleValue, stringValue);
 		if (type == 0){
 			intElements[filledIntElements] = intValue;
 			filledIntElements ++;
@@ -114,7 +116,10 @@ public class List_inArraySlots {
 		
     }
 
-
+	public Element get(int index){
+		return listOfElements[index];
+	}
+	
     /**
       Double the capacity of the List_inArraySlots,
       preserving existing data.
@@ -131,6 +136,7 @@ public class List_inArraySlots {
 		double[] biggerDouble = new double[doubleElements.length * 2];
 		String[] biggerString = new String[stringElements.length * 2];
 		int[] biggerType = new int[typeOfElements.length * 2];
+		Element[] biggerElement = new Element[typeOfElements.length * 2];
 		for (int index = 0; index < intElements.length - 1; index ++)
 			biggerInt[index] = intElements[index];
 		for (int index = 0; index < doubleElements.length - 1; index++)
@@ -139,9 +145,12 @@ public class List_inArraySlots {
 			biggerString[index] = stringElements[index];
 		for (int index = 0; index < typeOfElements.length - 1; index ++)
 			biggerType[index] = typeOfElements[index];
+		for (int index = 0; index < listOfElements.length - 1; index ++)
+			biggerElement[index] = listOfElements [index];
 		intElements = biggerInt;
 		doubleElements = biggerDouble;
 		stringElements = biggerString;
 		typeOfElements = biggerType;
+		listOfElements = biggerElement;
     }
 }
