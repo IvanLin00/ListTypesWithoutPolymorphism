@@ -13,7 +13,7 @@ public class List_inArraySlots {
 	private int filledDoubleElements;
 	private int filledStringElements;
     private int filledTypeElements; // the number of elements in this list
-	private Elements[] listOfElements;
+	private Element[] listOfElements;
     
     /* type identifier for each element
        That is, typeOfElements[i] == 0 means element i is an integer;
@@ -33,6 +33,7 @@ public class List_inArraySlots {
 		intElements = new int[INITIAL_CAPACITY];
 		doubleElements = new double[INITIAL_CAPACITY];
 		stringElements = new String[INITIAL_CAPACITY];
+		listOfElements = new Element[INITIAL_CAPACITY];
 		filledIntElements = 0;
 		typeOfElements = new int[INITIAL_CAPACITY * 3];
 		filledDoubleElements = 0;
@@ -92,9 +93,7 @@ public class List_inArraySlots {
       @return true, in keeping with conventions yet to be discussed
      */
      public boolean add( int type ,int intValue,double doubleValue,String stringValue) {
-		if (filledIntElements > intElements.length - 1 
-			|| filledDoubleElements > doubleElements.length - 1
-			|| filledStringElements > stringElements.length - 1) {
+		if (filledTypeElements > listOfElements.length - 1) {
 			expand();
 		}
 		typeOfElements[filledTypeElements] = type;
@@ -145,7 +144,7 @@ public class List_inArraySlots {
 			biggerString[index] = stringElements[index];
 		for (int index = 0; index < typeOfElements.length - 1; index ++)
 			biggerType[index] = typeOfElements[index];
-		for (int index = 0; index < listOfElements.length - 1; index ++)
+		for (int index = 0; index < listOfElements.length; index ++)
 			biggerElement[index] = listOfElements [index];
 		intElements = biggerInt;
 		doubleElements = biggerDouble;

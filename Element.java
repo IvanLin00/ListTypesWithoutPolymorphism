@@ -12,8 +12,9 @@ public class Element{
 	}
 	
 	public String toString(){
-		if (type = 0) return intElement;
-		if (type = 1) return doubleElement;
+		String s = "";
+		if (type == 0) return s + intElement;
+		if (type == 1) return s + doubleElement;
 		return stringElement;
 	}
 }
